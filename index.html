@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Web Project</title>
+    <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Modern Web Project!</h1>
-    </header>
-    <main>
-        <simple-greeting name="User"></simple-greeting>
-    </main>
-    <footer>
-        <p>Created with Gemini</p>
-    </footer>
-    <script src="main.js"></script>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+    <lotto-generator></lotto-generator>
+
+    <script>
+        const themeSwitch = document.querySelector('#checkbox');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
