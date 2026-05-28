@@ -1,33 +1,54 @@
-# **Blueprint: Fortune Teller & Partnership Inquiries (Korean)**
+# **Blueprint: The Wellspring of Wisdom (Blog)**
 
 ## **Overview**
 
-This is a dynamic, modern web application localized for a Korean audience. It provides users with a daily and yearly fortune based on their date of birth and includes a simple form for partnership inquiries. The application features a clean, intuitive interface and supports both light and dark themes.
+This project is a content-centric blog titled "The Wellspring of Wisdom," designed to meet Google AdSense approval criteria. It focuses on providing high-quality, original content about global proverbs, historical wisdom, and philosophical insights. The site is structured to ensure a great user experience, build trust, and comply with AdSense policies.
 
-## **Design & Features**
+## **Project Goals**
 
-### **Overall Design**
+*   **Achieve Google AdSense Approval:** The primary goal is to build a website that meets all the requirements for AdSense monetization.
+*   **Provide High-Quality Content:** Create unique, engaging, and informative articles that offer real value to readers.
+*   **Deliver an Excellent User Experience:** Ensure the site is easy to navigate, readable, responsive, and aesthetically pleasing.
+*   **Build Trust and Authority:** Include essential pages like "About Us," "Contact," and "Privacy Policy" to establish credibility.
 
-*   **Language:** The entire user interface and all content are in Korean.
-*   **Theme:** Elegant and mystical, with a user-friendly interface. It supports both light and dark color schemes.
-*   **Layout:** A central card-based layout that is responsive and works well on both desktop and mobile devices.
-*   **Typography:** Uses a clear, legible font suitable for Korean characters.
+## **Site Structure & Pages**
 
-### **Features**
+The website will have a multi-page structure with clear and intuitive navigation.
 
-*   **Fortune Teller Component (`<fortune-teller>`)**
-    *   **UI Text:** All labels, buttons, and titles are in Korean (e.g., "생년월일을 입력하세요", "운세 보기").
-    *   **Functionality:** Generates a daily and yearly fortune from a Korean dataset based on the user's birthdate.
-*   **Partnership Inquiry Form (`<contact-form>`)**
-    *   **UI Text:** All form labels and the submit button are in Korean (e.g., "이름", "이메일", "메시지 보내기").
-    *   **Functionality:** Allows users to send partnership inquiries through a simple, localized form.
-*   **Dark/Light Mode Toggle**
-    *   A user-controlled switch to toggle between light and dark themes.
+*   **`index.html` (Homepage):**
+    *   Displays a list of the latest blog articles with titles, summaries, and thumbnails.
+    *   Features a main header and a clear navigation menu.
+    *   Includes a footer with links to essential pages.
+*   **`article.html` (and other article pages):**
+    *   A template for individual blog posts. Each article will have its own well-structured content.
+*   **`about.html` (About Us):**
+    *   Explains the mission and purpose of "The Wellspring of Wisdom" blog.
+*   **`contact.html` (Contact Us):**
+    *   Provides a simple form for users to send messages (re-using the Formspree integration).
+*   **`privacy.html` (Privacy Policy):**
+    *   A dedicated page containing the website's privacy policy, crucial for AdSense.
 
-## **Current Plan: Localize the Application to Korean**
+## **Design & Technology**
 
-1.  **Update `blueprint.md`:** Reflect the Korean localization effort in the blueprint.
-2.  **Update `main.js`:**
-    *   Translate all UI strings, button texts, and labels in both the `FortuneTeller` and `ContactForm` components to Korean.
-    *   Translate the predefined fortune messages into natural-sounding Korean.
-3.  **Git Push & Deploy:** Commit the localization changes, push them to the remote repository, and deploy the final Korean version of the application to Firebase Hosting.
+*   **Design:** A clean, modern, and professional blog layout with a strong focus on readability and typography. The dark/light theme toggle will be retained.
+*   **Frontend:** The site will be built with standard HTML, CSS, and JavaScript, without relying on external frameworks.
+*   **CSS:** The stylesheet will be completely overhauled to support the new multi-page blog structure, using modern CSS for layout and responsiveness.
+*   **JavaScript:** JavaScript will be used for the theme-switching functionality and any other minor interactive elements. The previous Web Components will be removed as the site structure is changing.
+
+## **Content Strategy**
+
+The initial set of articles will cover topics such as:
+*   The wisdom of ancient philosophers.
+*   Life lessons from historical events.
+*   Analysis of proverbs from different cultures.
+
+This strategy ensures the site has a solid foundation of unique and valuable content from day one.
+
+## **Current Plan: Full-Site Rebuild for AdSense Approval**
+
+1.  **Rewrite `blueprint.md`:** Establish the new project goals and structure. **(Done)**
+2.  **Create New Site Files:** Generate the HTML files for the new page structure (`index.html`, `about.html`, `contact.html`, `privacy.html`, and a sample `article1.html`).
+3.  **Generate High-Quality Content:** Populate the created pages with well-written, original content suitable for AdSense review.
+4.  **Overhaul `style.css`:** Implement a new design for the blog layout.
+5.  **Refactor `main.js`:** Remove the old Web Components and simplify the script to support the new site structure.
+6.  **Commit and Deploy:** Push the completely rebuilt site to GitHub and deploy it via Firebase Hosting.

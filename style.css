@@ -1,94 +1,242 @@
+/* General Styles & Variables */
 :root {
-    --background-color: #f4f7f6;
-    --text-color: #333;
-    --card-background-color: #fff;
-    --card-border-color: #ddd;
-    --card-shadow-color: rgba(0, 0, 0, 0.1);
-    --button-bg-color: #8e44ad; /* Mystical Purple */
-    --button-hover-bg-color: #9b59b6;
-    --button-shadow-color: rgba(142, 68, 173, 0.2);
-    --button-hover-shadow-color: rgba(142, 68, 173, 0.3);
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --background-color-light: #f4f4f9;
+    --text-color-light: #333;
+    --header-bg-light: #fff;
+    --card-bg-light: #fff;
+    --border-color-light: #ddd;
+    --link-color-light: #007bff;
+    --button-bg-light: #007bff;
+    --button-text-light: #fff;
+    --footer-bg-light: #333;
+    --footer-text-light: #fff;
+
+    --background-color-dark: #121212;
+    --text-color-dark: #e0e0e0;
+    --header-bg-dark: #1f1f1f;
+    --card-bg-dark: #1e1e1e;
+    --border-color-dark: #444;
+    --link-color-dark: #6ab0f3;
+    --button-bg-dark: #6ab0f3;
+    --button-text-dark: #121212;
+    --footer-bg-dark: #1f1f1f;
+    --footer-text-dark: #e0e0e0;
 }
 
-body.dark-mode {
-    --background-color: #2c3e50;
-    --text-color: #ecf0f1;
-    --card-background-color: #34495e;
-    --card-border-color: #566573;
-    --card-shadow-color: rgba(0, 0, 0, 0.4);
-    --button-bg-color: #9b59b6;
-    --button-hover-bg-color: #8e44ad;
-    --button-shadow-color: rgba(155, 89, 182, 0.2);
-    --button-hover-shadow-color: rgba(155, 89, 182, 0.3);
+[data-theme='light'] {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --header-bg: var(--header-bg-light);
+    --card-bg: var(--card-bg-light);
+    --border-color: var(--border-color-light);
+    --link-color: var(--link-color-light);
+    --button-bg: var(--button-bg-light);
+    --button-text: var(--button-text-light);
+    --footer-bg: var(--footer-bg-light);
+    --footer-text: var(--footer-text-light);
+}
+
+[data-theme='dark'] {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --header-bg: var(--header-bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --border-color: var(--border-color-dark);
+    --link-color: var(--link-color-dark);
+    --button-bg: var(--button-bg-dark);
+    --button-text: var(--button-text-dark);
+    --footer-bg: var(--footer-bg-dark);
+    --footer-text: var(--footer-text-dark);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 2rem;
+    font-family: var(--font-family);
     background-color: var(--background-color);
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    line-height: 1.6;
+    margin: 0;
     transition: background-color 0.3s, color 0.3s;
 }
 
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Theme Switch */
 .theme-switch-wrapper {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     display: flex;
     align-items: center;
 }
-
 .theme-switch {
-    display: inline-block;
-    height: 34px;
     position: relative;
+    display: inline-block;
     width: 60px;
+    height: 34px;
 }
-
-.theme-switch input {
-    display:none;
+.theme-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
-
 .slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
     position: absolute;
-    right: 0;
+    cursor: pointer;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
     transition: .4s;
 }
-
 .slider:before {
-    background-color: #fff;
-    bottom: 4px;
+    position: absolute;
     content: "";
     height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
     width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
 }
-
 input:checked + .slider {
-    background-color: var(--button-bg-color);
+    background-color: #2196F3;
 }
-
 input:checked + .slider:before {
     transform: translateX(26px);
 }
-
 .slider.round {
     border-radius: 34px;
 }
-
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+/* Navigation */
+nav {
+    background-color: var(--header-bg);
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav a {
+    margin-right: 20px;
+    font-size: 1.1em;
+}
+
+/* Main Content */
+main {
+    padding: 20px 0;
+}
+
+main h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--link-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Article List (Homepage) */
+.article-list article {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.article-list h3 {
+    margin-top: 0;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Full Article Page */
+.full-article h2 {
+    border-bottom: none;
+}
+.full-article .meta {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+/* Contact Form */
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+.contact-form button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    header h1 {
+        margin-bottom: 10px;
+    }
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
 }
