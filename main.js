@@ -3,26 +3,25 @@ class FortuneTeller extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
 
-    // Pre-defined fortunes
     this.todaysFortunes = [
-      "A beautiful day begins with a beautiful mindset.",
-      "Good things are coming your way.",
-      "You will have a surprisingly pleasant encounter today.",
-      "A small act of kindness will bring you great joy.",
-      "Your creativity will shine today. Embrace it.",
-      "An unexpected opportunity will arise.",
-      "Patience will be your greatest virtue today.",
-      "Listen to your intuition; it will guide you well."
+      "아름다운 하루는 아름다운 마음가짐에서 시작됩니다.",
+      "좋은 일들이 당신을 찾아오고 있습니다.",
+      "오늘, 예상치 못한 즐거운 만남이 있을 것입니다.",
+      "작은 친절이 당신에게 큰 기쁨을 가져다 줄 것입니다.",
+      "당신의 창의력이 빛나는 날입니다. 마음껏 펼쳐보세요.",
+      "뜻밖의 기회가 당신을 찾아올 것입니다.",
+      "오늘은 인내가 최고의 미덕이 될 것입니다.",
+      "당신의 직감을 믿으세요. 좋은 길로 인도할 것입니다."
     ];
     this.yearsFortunes = [
-      "This year will be a journey of self-discovery and growth.",
-      "A major personal milestone is within your reach this year.",
-      "New friendships and connections will enrich your life.",
-      "Financial stability and prosperity are on the horizon.",
-      "Embrace change, for it will lead to exciting new beginnings.",
-      "Your hard work will pay off in unexpected and rewarding ways.",
-      "This is a year to focus on health and well-being.",
-      "Travel and adventure will broaden your perspective."
+      "올해는 자기 발견과 성장의 여정이 될 것입니다.",
+      "중요한 개인적 목표를 달성할 수 있는 한 해입니다.",
+      "새로운 우정과 인연이 당신의 삶을 풍요롭게 할 것입니다.",
+      "재정적 안정과 풍요가 당신을 기다리고 있습니다.",
+      "변화를 두려워하지 마세요. 흥미로운 시작으로 이어질 것입니다.",
+      "당신의 노력이 예상치 못한 큰 보상으로 돌아올 것입니다.",
+      "건강과 웰빙에 집중하기 좋은 한 해입니다.",
+      "여행과 모험이 당신의 시야를 넓혀줄 것입니다."
     ];
 
     this.shadowRoot.innerHTML = `
@@ -107,19 +106,19 @@ class FortuneTeller extends HTMLElement {
         }
       </style>
       <div class="wrapper">
-        <h2>Your Personal Fortune</h2>
+        <h2>당신의 운세</h2>
         <div class="input-group">
-            <label for="birthdate">Enter Your Birthdate:</label>
+            <label for="birthdate">생년월일을 입력하세요:</label>
             <input type="date" id="birthdate">
         </div>
-        <button id="get-fortune">Get Fortune</button>
+        <button id="get-fortune">운세 보기</button>
         <div class="fortune-results">
             <div class="fortune-section">
-                <h3>Today's Fortune</h3>
+                <h3>오늘의 운세</h3>
                 <p id="todays-fortune"></p>
             </div>
             <div class="fortune-section">
-                <h3>This Year's Fortune</h3>
+                <h3>올해의 운세</h3>
                 <p id="years-fortune"></p>
             </div>
         </div>
@@ -131,14 +130,13 @@ class FortuneTeller extends HTMLElement {
     const button = this.shadowRoot.querySelector('#get-fortune');
     const birthdateInput = this.shadowRoot.querySelector('#birthdate');
 
-    // Set max date to today
     birthdateInput.max = new Date().toISOString().split('T')[0];
 
     button.addEventListener('click', () => {
       if (birthdateInput.value) {
         this.generateFortune(birthdateInput.value);
       } else {
-        alert('Please enter your birthdate.');
+        alert('생년월일을 입력해주세요.');
       }
     });
   }
@@ -147,7 +145,6 @@ class FortuneTeller extends HTMLElement {
     const birthDateObj = new Date(birthdate);
     const today = new Date();
 
-    // Simple seeding mechanism
     const todaySeed = (birthDateObj.getTime() + today.setHours(0,0,0,0)) % this.todaysFortunes.length;
     const yearSeed = (birthDateObj.getFullYear() + today.getFullYear()) % this.yearsFortunes.length;
 
@@ -157,7 +154,7 @@ class FortuneTeller extends HTMLElement {
 
     todaysFortuneEl.textContent = this.todaysFortunes[todaySeed];
     yearsFortuneEl.textContent = this.yearsFortunes[yearSeed];
-
+    
     resultsContainer.classList.add('visible');
   }
 }
@@ -226,21 +223,21 @@ class ContactForm extends HTMLElement {
                 }
             </style>
             <div class="wrapper">
-                <h2>Partnership Inquiry</h2>
+                <h2>제휴 문의</h2>
                 <form action="https://formspree.io/f/xqejwjyw" method="POST">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">이름</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">이메일</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="message">메시지</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">메시지 보내기</button>
                 </form>
             </div>
         `;
