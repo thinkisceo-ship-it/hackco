@@ -4,16 +4,10 @@
     --card-background-color: #fff;
     --card-border-color: #ddd;
     --card-shadow-color: rgba(0, 0, 0, 0.1);
-    --button-bg-color: #007bff;
-    --button-hover-bg-color: #0056b3;
-    --button-shadow-color: rgba(0, 123, 255, 0.2);
-    --button-hover-shadow-color: rgba(0, 123, 255, 0.3);
-
-    --num-color-1: #f9c92a;
-    --num-color-2: #3498db;
-    --num-color-3: #e74c3c;
-    --num-color-4: #9b59b6;
-    --num-color-5: #2ecc71;
+    --button-bg-color: #8e44ad; /* Mystical Purple */
+    --button-hover-bg-color: #9b59b6;
+    --button-shadow-color: rgba(142, 68, 173, 0.2);
+    --button-hover-shadow-color: rgba(142, 68, 173, 0.3);
 }
 
 body.dark-mode {
@@ -22,10 +16,10 @@ body.dark-mode {
     --card-background-color: #34495e;
     --card-border-color: #566573;
     --card-shadow-color: rgba(0, 0, 0, 0.4);
-    --button-bg-color: #3498db;
-    --button-hover-bg-color: #2980b9;
-    --button-shadow-color: rgba(52, 152, 219, 0.2);
-    --button-hover-shadow-color: rgba(52, 152, 219, 0.3);
+    --button-bg-color: #9b59b6;
+    --button-hover-bg-color: #8e44ad;
+    --button-shadow-color: rgba(155, 89, 182, 0.2);
+    --button-hover-shadow-color: rgba(155, 89, 182, 0.3);
 }
 
 body {
@@ -58,7 +52,7 @@ body {
 }
 
 .theme-switch input {
-    display: none;
+    display:none;
 }
 
 .slider {
